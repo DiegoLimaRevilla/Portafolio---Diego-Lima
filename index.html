@@ -30,7 +30,7 @@
     .dark .section-title{color:var(--cream)}
     .section-title{font-size:clamp(2.8rem,6vw,5rem);line-height:.95;letter-spacing:-.04em;margin:12px 0 28px}
     .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left}
+    .card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left;cursor:pointer;width:100%}.project-page{display:none;min-height:100vh}.project-page.active{display:block}.home-hidden{display:none}.back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--cream);border-radius:10px;background:transparent;color:var(--cream);font-weight:800;cursor:pointer}
     .card span{font-size:.72rem;letter-spacing:.18em;opacity:.55}
     .card strong{display:block;font-family:Georgia,serif;font-size:2rem;margin:12px 0}
     .card small{font-size:1rem;line-height:1.45}
@@ -81,34 +81,13 @@
       <div class="cards">
         <article class="card"><span>01</span><strong>ByPal</strong><small>Contenido y producción audiovisual para productos tecnológicos.</small></article>
         <article class="card"><span>02</span><strong>Caja China El Cerrito</strong><small>Contenido gastronómico vertical para redes sociales.</small></article>
-        <article class="card"><span>03</span><strong>Walkie Talkies Reys</strong><small>Producto, demostración y contenido comercial.</small></article>
+        <button class="card project-trigger" data-target="walkie-project"><span>03</span><strong>Walkie Talkies Reys</strong><small>Producto, demostración y contenido comercial.</small></button>
         <article class="card"><span>04</span><strong>Relojes de lujo</strong><small>Producto, detalle y estética visual.</small></article>
       </div>
     </div>
   </section>
 
-  <section id="walkie" class="section dark" style="padding-top:0">
-    <div class="wrap">
-      <p class="kicker">Proyecto seleccionado</p>
-      <h2 class="section-title">Walkie Talkies Reys</h2>
-      <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
-      <div class="feature">
-        <div class="video-shell">
-          <video controls playsinline preload="metadata" src="https://res.cloudinary.com/vytiwqtu/video/upload/TikVideo.App_7680334882014383378.mp4"></video>
-        </div>
-        <div class="paper">
-          <h3>Pieza principal</h3>
-          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
-          <div class="tags">
-            <span class="tag">Producto</span>
-            <span class="tag">Grabación</span>
-            <span class="tag">Edición</span>
-            <span class="tag">Contenido vertical</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="sobre-mi" class="section">
     <div class="wrap two-col">
@@ -137,11 +116,44 @@
       <p class="lead">Esta sección quedará lista cuando definamos tus datos y redes finales.</p>
     </div>
   </section>
-</main>
+</main>\n<section id="walkie-project" class="project-page section dark">
+    <div class="wrap"><button class="back-btn" type="button">← Volver a proyectos</button>
+      <p class="kicker">Proyecto seleccionado</p>
+      <h2 class="section-title">Walkie Talkies Reys</h2>
+      <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
+      <div class="feature">
+        <div class="video-shell">
+          <video controls playsinline preload="metadata" src="https://res.cloudinary.com/vytiwqtu/video/upload/TikVideo.App_7680334882014383378.mp4"></video>
+        </div>
+        <div class="paper">
+          <h3>Pieza principal</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
+          <div class="tags">
+            <span class="tag">Producto</span>
+            <span class="tag">Grabación</span>
+            <span class="tag">Edición</span>
+            <span class="tag">Contenido vertical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <footer><div class="wrap">© Diego Lima — Portafolio</div></footer>
 
 <script>
+document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelector('main').classList.add('home-hidden');
+  document.querySelectorAll('.project-page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(btn.dataset.target)?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+document.querySelectorAll('.back-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.project-page').forEach(p=>p.classList.remove('active'));
+  document.querySelector('main').classList.remove('home-hidden');
+  setTimeout(()=>document.getElementById('proyectos')?.scrollIntoView({behavior:'smooth'}),50);
+}));
+
 document.addEventListener('play',e=>{
   if(e.target.tagName!=='VIDEO') return;
   document.querySelectorAll('video').forEach(v=>{if(v!==e.target&&!v.paused)v.pause()});
