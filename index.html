@@ -1,1 +1,151 @@
-<h1>Portafolio Diego Lima</h1>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Diego Lima — Portafolio</title>
+  <style>
+    :root{--cream:#f3ead7;--green:#1f4d3a;--ink:#17362b;--paper:#fbf6ea}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1180px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:30;background:rgba(243,234,215,.96);border-bottom:1px solid rgba(31,77,58,.18);backdrop-filter:blur(10px)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:900;font-size:1.25rem;letter-spacing:.02em}
+    nav{display:flex;gap:22px;font-weight:700;font-size:.93rem}
+    .hero{min-height:75vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:44px;padding:64px 0}
+    .kicker{text-transform:uppercase;letter-spacing:.24em;font-weight:800;font-size:.72rem}
+    h1,.section-title{font-family:Georgia,serif;color:var(--green)}
+    h1{font-size:clamp(4rem,10vw,8rem);line-height:.84;letter-spacing:-.06em;margin:16px 0}
+    .hero h2{text-transform:uppercase;letter-spacing:.12em;font-size:1rem;margin:0 0 18px}
+    .lead{font-size:1.18rem;line-height:1.65;max-width:720px}
+    .hero-art{height:520px;border:2px solid var(--green);border-radius:120px 120px 18px 18px;background:
+      radial-gradient(circle at 65% 35%,rgba(31,77,58,.08) 0 24%,transparent 25%),
+      linear-gradient(145deg,#fbf6ea,#e7dcc5);display:grid;place-items:center;overflow:hidden}
+    .hero-art div{font-family:Georgia,serif;font-size:clamp(4rem,9vw,7rem);color:var(--green);opacity:.2;font-weight:700}
+    .section{padding:76px 0}
+    .dark{background:var(--green);color:var(--cream)}
+    .dark .section-title{color:var(--cream)}
+    .section-title{font-size:clamp(2.8rem,6vw,5rem);line-height:.95;letter-spacing:-.04em;margin:12px 0 28px}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left}
+    .card span{font-size:.72rem;letter-spacing:.18em;opacity:.55}
+    .card strong{display:block;font-family:Georgia,serif;font-size:2rem;margin:12px 0}
+    .card small{font-size:1rem;line-height:1.45}
+    .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:32px}
+    .video-shell{max-width:390px;margin:auto;width:100%;background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--cream)}
+    video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
+    .paper{background:var(--paper);color:var(--ink);padding:30px;border-radius:18px}
+    .paper h3{font-family:Georgia,serif;font-size:2rem;margin:0 0 12px}
+    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .tag{border:1px solid rgba(23,54,43,.25);border-radius:999px;padding:8px 12px;font-size:.85rem;font-weight:700}
+    .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}
+    .placeholder{border:2px dashed rgba(243,234,215,.35);border-radius:18px;padding:28px;min-height:180px;display:grid;place-items:center;text-align:center}
+    footer{padding:46px 0;border-top:1px solid rgba(31,77,58,.18)}
+    @media(max-width:860px){
+      nav{display:none}.hero,.feature,.two-col{grid-template-columns:1fr}.hero-art{height:360px;border-radius:80px 80px 18px 18px}.cards{grid-template-columns:1fr}.hero{padding-top:40px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">DIEGO LIMA</a>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#fotografia">Fotografía</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="wrap hero">
+    <div>
+      <p class="kicker">Creatividad · Estrategia · Contenido</p>
+      <h1>DIEGO<br>LIMA</h1>
+      <h2>Publicista y Creador de Contenido</h2>
+      <p class="lead">Creo contenido, fotografía y piezas audiovisuales con una mirada creativa, cercana y estratégica.</p>
+    </div>
+    <div class="hero-art"><div>DL</div></div>
+  </section>
+
+  <section id="proyectos" class="section dark">
+    <div class="wrap">
+      <p class="kicker">Proyectos destacados</p>
+      <h2 class="section-title">Trabajo seleccionado</h2>
+      <div class="cards">
+        <article class="card"><span>01</span><strong>ByPal</strong><small>Contenido y producción audiovisual para productos tecnológicos.</small></article>
+        <article class="card"><span>02</span><strong>Caja China El Cerrito</strong><small>Contenido gastronómico vertical para redes sociales.</small></article>
+        <article class="card"><span>03</span><strong>Walkie Talkies Reys</strong><small>Producto, demostración y contenido comercial.</small></article>
+        <article class="card"><span>04</span><strong>Relojes de lujo</strong><small>Producto, detalle y estética visual.</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="walkie" class="section dark" style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker">Proyecto seleccionado</p>
+      <h2 class="section-title">Walkie Talkies Reys</h2>
+      <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
+      <div class="feature">
+        <div class="video-shell">
+          <video controls playsinline preload="metadata" src="https://res.cloudinary.com/vytiwqtu/video/upload/TikVideo.App_7680334882014383378.mp4"></video>
+        </div>
+        <div class="paper">
+          <h3>Pieza principal</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
+          <div class="tags">
+            <span class="tag">Producto</span>
+            <span class="tag">Grabación</span>
+            <span class="tag">Edición</span>
+            <span class="tag">Contenido vertical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre-mi" class="section">
+    <div class="wrap two-col">
+      <div>
+        <p class="kicker">Sobre mí</p>
+        <h2 class="section-title">Creativo, pero con intención.</h2>
+      </div>
+      <div class="paper">
+        <p class="lead">Soy publicista y creador de contenido. Mi trabajo combina estrategia, producción audiovisual, fotografía y comunicación visual.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotografia" class="section dark">
+    <div class="wrap">
+      <p class="kicker">Fotografía</p>
+      <h2 class="section-title">Mirar también es contar.</h2>
+      <div class="placeholder">Tu selección fotográfica irá aquí cuando subamos las imágenes.</div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section">
+    <div class="wrap">
+      <p class="kicker">Contacto</p>
+      <h2 class="section-title">Hablemos.</h2>
+      <p class="lead">Esta sección quedará lista cuando definamos tus datos y redes finales.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© Diego Lima — Portafolio</div></footer>
+
+<script>
+document.addEventListener('play',e=>{
+  if(e.target.tagName!=='VIDEO') return;
+  document.querySelectorAll('video').forEach(v=>{if(v!==e.target&&!v.paused)v.pause()});
+},true);
+</script>
+</body>
+</html>
