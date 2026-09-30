@@ -4,23 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Diego Lima — Portafolio</title>
+  <meta name="description" content="Portafolio de Diego Lima, publicista y creador de contenido.">
   <style>
-    :root{--cream:#f3ead7;--green:#1f4d3a;--ink:#17362b;--paper:#fbf6ea}
+    :root{--cream:#f3ead7;--green:#1f4d3a;--ink:#17362b;--paper:#fbf6ea;--accent:#c77a52}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
     a{text-decoration:none;color:inherit}
+    button{font:inherit}
     .wrap{width:min(1180px,92%);margin:auto}
     header{position:sticky;top:0;z-index:30;background:rgba(243,234,215,.96);border-bottom:1px solid rgba(31,77,58,.18);backdrop-filter:blur(10px)}
     .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-weight:900;font-size:1.25rem;letter-spacing:.02em}
+    .brand{font-weight:900;font-size:1.25rem}
     nav{display:flex;gap:22px;font-weight:700;font-size:.93rem}
     .hero{min-height:75vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:44px;padding:64px 0}
     .kicker{text-transform:uppercase;letter-spacing:.24em;font-weight:800;font-size:.72rem}
     h1,.section-title{font-family:Georgia,serif;color:var(--green)}
     h1{font-size:clamp(4rem,10vw,8rem);line-height:.84;letter-spacing:-.06em;margin:16px 0}
     .hero h2{text-transform:uppercase;letter-spacing:.12em;font-size:1rem;margin:0 0 18px}
-    .lead{font-size:1.18rem;line-height:1.65;max-width:720px}
+    .lead{font-size:1.18rem;line-height:1.65;max-width:760px}
     .hero-art{height:520px;border:2px solid var(--green);border-radius:120px 120px 18px 18px;background:
       radial-gradient(circle at 65% 35%,rgba(31,77,58,.08) 0 24%,transparent 25%),
       linear-gradient(145deg,#fbf6ea,#e7dcc5);display:grid;place-items:center;overflow:hidden}
@@ -30,29 +32,48 @@
     .dark .section-title{color:var(--cream)}
     .section-title{font-size:clamp(2.8rem,6vw,5rem);line-height:.95;letter-spacing:-.04em;margin:12px 0 28px}
     .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left;cursor:pointer;width:100%}.project-page{display:none;min-height:100vh}.project-page.active{display:block}.home-hidden{display:none}.back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--cream);border-radius:10px;background:transparent;color:var(--cream);font-weight:800;cursor:pointer}
+    .card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left;cursor:pointer;width:100%;transition:transform .2s ease}
+    .card:hover{transform:translateY(-3px)}
     .card span{font-size:.72rem;letter-spacing:.18em;opacity:.55}
     .card strong{display:block;font-family:Georgia,serif;font-size:2rem;margin:12px 0}
     .card small{font-size:1rem;line-height:1.45}
+    .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}
+    .paper{background:var(--paper);color:var(--ink);padding:30px;border-radius:18px}
+    .paper h3{font-family:Georgia,serif;font-size:2rem;margin:0 0 12px}
+    .placeholder{border:2px dashed rgba(243,234,215,.35);border-radius:18px;padding:28px;min-height:180px;display:grid;place-items:center;text-align:center}
+    footer{padding:46px 0;border-top:1px solid rgba(31,77,58,.18)}
+    .project-page{display:none;min-height:100vh}
+    .project-page.active{display:block}
+    .home-hidden{display:none}
+    .project-head{padding:70px 0 34px}
+    .back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--green);border-radius:10px;background:transparent;color:var(--green);font-weight:800;cursor:pointer}
+    .project-page.dark-page .back-btn{border-color:var(--cream);color:var(--cream)}
     .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:32px}
     .video-shell{max-width:390px;margin:auto;width:100%;background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--cream)}
     video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
-    .paper{background:var(--paper);color:var(--ink);padding:30px;border-radius:18px}
-    .paper h3{font-family:Georgia,serif;font-size:2rem;margin:0 0 12px}
+    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+    .video-card{background:var(--paper);color:var(--ink);border-radius:18px;overflow:hidden;max-width:330px;width:100%;margin:auto}
+    .video-card video{border-radius:0}
+    .video-card .caption{padding:16px 18px}
+    .video-card h3{margin:0 0 6px;font-family:Georgia,serif;font-size:1.35rem}
     .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
     .tag{border:1px solid rgba(23,54,43,.25);border-radius:999px;padding:8px 12px;font-size:.85rem;font-weight:700}
-    .two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px}
-    .placeholder{border:2px dashed rgba(243,234,215,.35);border-radius:18px;padding:28px;min-height:180px;display:grid;place-items:center;text-align:center}
-    footer{padding:46px 0;border-top:1px solid rgba(31,77,58,.18)}
+    .dark .tag{border-color:rgba(23,54,43,.25)}
+    @media(max-width:980px){.video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:860px){
-      nav{display:none}.hero,.feature,.two-col{grid-template-columns:1fr}.hero-art{height:360px;border-radius:80px 80px 18px 18px}.cards{grid-template-columns:1fr}.hero{padding-top:40px}
+      nav{display:none}
+      .hero,.feature,.two-col{grid-template-columns:1fr}
+      .hero-art{height:360px;border-radius:80px 80px 18px 18px}
+      .cards,.video-grid{grid-template-columns:1fr}
+      .hero{padding-top:40px}
+      .video-shell,.video-card{max-width:420px}
     }
   </style>
 </head>
 <body>
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#inicio">DIEGO LIMA</a>
+    <a class="brand" href="#inicio" id="brand-home">DIEGO LIMA</a>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#sobre-mi">Sobre mí</a>
@@ -79,25 +100,18 @@
       <p class="kicker">Proyectos destacados</p>
       <h2 class="section-title">Trabajo seleccionado</h2>
       <div class="cards">
-        <article class="card"><span>01</span><strong>ByPal</strong><small>Contenido y producción audiovisual para productos tecnológicos.</small></article>
-        <article class="card"><span>02</span><strong>Caja China El Cerrito</strong><small>Contenido gastronómico vertical para redes sociales.</small></article>
+        <button class="card project-trigger" data-target="bypal-project"><span>01</span><strong>ByPal</strong><small>Contenido y producción audiovisual para productos de videovigilancia.</small></button>
+        <button class="card project-trigger" data-target="cerrito-project"><span>02</span><strong>Caja China El Cerrito</strong><small>Contenido gastronómico vertical para redes sociales.</small></button>
         <button class="card project-trigger" data-target="walkie-project"><span>03</span><strong>Walkie Talkies Reys</strong><small>Producto, demostración y contenido comercial.</small></button>
-        <article class="card"><span>04</span><strong>Relojes de lujo</strong><small>Producto, detalle y estética visual.</small></article>
+        <button class="card project-trigger" data-target="relojes-project"><span>04</span><strong>Relojes de lujo</strong><small>Producto, detalle y estética visual.</small></button>
       </div>
     </div>
   </section>
 
-  
-
   <section id="sobre-mi" class="section">
     <div class="wrap two-col">
-      <div>
-        <p class="kicker">Sobre mí</p>
-        <h2 class="section-title">Creativo, pero con intención.</h2>
-      </div>
-      <div class="paper">
-        <p class="lead">Soy publicista y creador de contenido. Mi trabajo combina estrategia, producción audiovisual, fotografía y comunicación visual.</p>
-      </div>
+      <div><p class="kicker">Sobre mí</p><h2 class="section-title">Creativo, pero con intención.</h2></div>
+      <div class="paper"><p class="lead">Soy publicista y creador de contenido. Mi trabajo combina estrategia, producción audiovisual, fotografía y comunicación visual.</p></div>
     </div>
   </section>
 
@@ -116,46 +130,143 @@
       <p class="lead">Esta sección quedará lista cuando definamos tus datos y redes finales.</p>
     </div>
   </section>
-</main>\n<section id="walkie-project" class="project-page section dark">
-    <div class="wrap"><button class="back-btn" type="button">← Volver a proyectos</button>
-      <p class="kicker">Proyecto seleccionado</p>
-      <h2 class="section-title">Walkie Talkies Reys</h2>
-      <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
+</main>
+
+<section id="bypal-project" class="project-page">
+  <div class="wrap project-head">
+    <button class="back-btn" type="button">← Volver a proyectos</button>
+    <p class="kicker">Proyecto seleccionado</p>
+    <h2 class="section-title">ByPal</h2>
+    <p class="lead">Contenido audiovisual para productos de videovigilancia, creado para explicar funciones técnicas de manera clara, visual y fácil de entender.</p>
+  </div>
+  <div class="section dark">
+    <div class="wrap">
       <div class="feature">
-        <div class="video-shell">
-          <video controls playsinline preload="metadata" src="https://res.cloudinary.com/vytiwqtu/video/upload/TikVideo.App_7680334882014383378.mp4"></video>
-        </div>
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/bypal_principal.mp4"></video></div>
         <div class="paper">
-          <h3>Pieza principal</h3>
-          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
-          <div class="tags">
-            <span class="tag">Producto</span>
-            <span class="tag">Grabación</span>
-            <span class="tag">Edición</span>
-            <span class="tag">Contenido vertical</span>
-          </div>
+          <h3>Mi aporte</h3>
+          <p class="lead" style="font-size:1.05rem">Idea, grabación, edición y publicación de contenido vertical para mostrar productos tecnológicos de forma clara y comercial.</p>
+          <div class="tags"><span class="tag">Idea</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Publicación</span></div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="section"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_4.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
+</section>
+
+<section id="cerrito-project" class="project-page">
+  <div class="wrap project-head">
+    <button class="back-btn" type="button">← Volver a proyectos</button>
+    <p class="kicker">Proyecto seleccionado</p>
+    <h2 class="section-title">Caja China El Cerrito</h2>
+    <p class="lead">Contenido audiovisual para restaurante, centrado en mostrar el producto de forma apetecible, dinámica y cercana.</p>
+  </div>
+  <div class="section dark">
+    <div class="wrap">
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/caja_china_el_cerrito.mp4"></video></div>
+        <div class="paper">
+          <h3>Mi aporte</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar la propuesta gastronómica del restaurante de una forma atractiva para redes sociales.</p>
+          <div class="tags"><span class="tag">Gastronomía</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="walkie-project" class="project-page">
+  <div class="wrap project-head">
+    <button class="back-btn" type="button">← Volver a proyectos</button>
+    <p class="kicker">Proyecto seleccionado</p>
+    <h2 class="section-title">Walkie Talkies Reys</h2>
+    <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
+  </div>
+  <div class="section dark">
+    <div class="wrap">
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/walkie_principal.mp4"></video></div>
+        <div class="paper">
+          <h3>Pieza principal</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
+          <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_4.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
+</section>
+
+<section id="relojes-project" class="project-page">
+  <div class="wrap project-head">
+    <button class="back-btn" type="button">← Volver a proyectos</button>
+    <p class="kicker">Proyecto seleccionado</p>
+    <h2 class="section-title">Relojes de lujo</h2>
+    <p class="lead">Contenido audiovisual para relojes, pensado para destacar acabados, detalles y presencia del producto con una estética cuidada y comercial.</p>
+  </div>
+  <div class="section dark">
+    <div class="wrap">
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/relojes_video_nuevo_7688809910967995669.mp4"></video></div>
+        <div class="paper">
+          <h3>Mi aporte</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical enfocado en presentar el producto con una imagen más elegante, cuidando encuadres, detalles y ritmo visual.</p>
+          <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_4.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_2.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_3.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
+</section>
 
 <footer><div class="wrap">© Diego Lima — Portafolio</div></footer>
 
 <script>
-document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelector('main').classList.add('home-hidden');
-  document.querySelectorAll('.project-page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(btn.dataset.target)?.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
-}));
-document.querySelectorAll('.back-btn').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('.project-page').forEach(p=>p.classList.remove('active'));
-  document.querySelector('main').classList.remove('home-hidden');
-  setTimeout(()=>document.getElementById('proyectos')?.scrollIntoView({behavior:'smooth'}),50);
-}));
+const home=document.querySelector('main#inicio');
+const pages=[...document.querySelectorAll('.project-page')];
 
+function pauseAll(){
+  document.querySelectorAll('video').forEach(v=>{if(!v.paused)v.pause()});
+}
+function showProject(id){
+  pauseAll();
+  home.classList.add('home-hidden');
+  pages.forEach(p=>p.classList.remove('active'));
+  document.getElementById(id)?.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function goHome(){
+  pauseAll();
+  pages.forEach(p=>p.classList.remove('active'));
+  home.classList.remove('home-hidden');
+  setTimeout(()=>document.getElementById('proyectos')?.scrollIntoView({behavior:'smooth'}),50);
+}
+document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>showProject(btn.dataset.target)));
+document.querySelectorAll('.back-btn').forEach(btn=>btn.addEventListener('click',goHome));
+document.getElementById('brand-home').addEventListener('click',e=>{if(home.classList.contains('home-hidden')){e.preventDefault();goHome();}});
 document.addEventListener('play',e=>{
-  if(e.target.tagName!=='VIDEO') return;
+  if(e.target.tagName!=='VIDEO')return;
   document.querySelectorAll('video').forEach(v=>{if(v!==e.target&&!v.paused)v.pause()});
 },true);
 </script>
