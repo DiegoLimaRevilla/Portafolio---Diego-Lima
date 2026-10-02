@@ -87,7 +87,12 @@
     .back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--green);border-radius:10px;background:transparent;color:var(--green);font-weight:800;cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease}
     .back-btn:hover{transform:translateX(-4px);background:var(--green);color:var(--cream)}
     .project-page.dark-page .back-btn{border-color:var(--cream);color:var(--cream)}
-    .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:32px}
+    .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:20px}
+    .project-showcase{padding:38px 0 24px}
+    .more-cue{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:22px auto 0;padding:9px 14px;border-radius:999px;color:var(--cream);font-size:.82rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.82;transition:transform .2s ease,opacity .2s ease}
+    .more-cue::after{content:'↓';font-size:1rem;transition:transform .2s ease}
+    .more-cue:hover{opacity:1;transform:translateY(2px)}
+    .more-cue:hover::after{transform:translateY(3px)}
     .video-shell{max-width:390px;margin:auto;width:100%;background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--cream)}
     video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
     .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
@@ -218,7 +223,7 @@
     <h2 class="section-title">Buypal</h2>
     <p class="lead">Contenido audiovisual para productos de videovigilancia, creado para explicar funciones técnicas de manera clara, visual y fácil de entender.</p>
   </div>
-  <div class="section dark">
+  <div class="section dark project-showcase">
     <div class="wrap">
       <div class="feature">
         <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/bypal_principal.mp4"></video></div>
@@ -228,9 +233,10 @@
           <div class="tags"><span class="tag">Idea</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Publicación</span></div>
         </div>
       </div>
+      <a class="more-cue" href="#bypal-more">Ver más piezas</a>
     </div>
   </div>
-  <div class="section"><div class="wrap">
+  <div class="section" id="bypal-more"><div class="wrap">
     <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
     <div class="video-grid">
       <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
@@ -268,7 +274,7 @@
     <h2 class="section-title">Walkie Talkies Reys</h2>
     <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
   </div>
-  <div class="section dark">
+  <div class="section dark project-showcase">
     <div class="wrap">
       <div class="feature">
         <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/walkie_principal.mp4"></video></div>
@@ -278,9 +284,10 @@
           <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
+      <a class="more-cue" href="#walkie-more">Ver más piezas</a>
     </div>
   </div>
-  <div class="section"><div class="wrap">
+  <div class="section" id="walkie-more"><div class="wrap">
     <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
     <div class="video-grid">
       <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
@@ -297,7 +304,7 @@
     <h2 class="section-title">Relojes de lujo</h2>
     <p class="lead">Contenido audiovisual para relojes, pensado para destacar acabados, detalles y presencia del producto con una estética cuidada y comercial.</p>
   </div>
-  <div class="section dark">
+  <div class="section dark project-showcase">
     <div class="wrap">
       <div class="feature">
         <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/relojes_video_nuevo_7688809910967995669.mp4"></video></div>
@@ -307,9 +314,10 @@
           <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
+      <a class="more-cue" href="#relojes-more">Ver más piezas</a>
     </div>
   </div>
-  <div class="section"><div class="wrap">
+  <div class="section" id="relojes-more"><div class="wrap">
     <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
     <div class="video-grid">
       <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_4.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
