@@ -88,14 +88,18 @@
     .back-btn:hover{transform:translateX(-4px);background:var(--green);color:var(--cream)}
     .project-page.dark-page .back-btn{border-color:var(--cream);color:var(--cream)}
     .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:20px}
-    .project-showcase{padding:38px 0 24px}
-    .more-cue{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:22px auto 0;padding:9px 14px;border-radius:999px;color:var(--cream);font-size:.82rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.82;transition:transform .2s ease,opacity .2s ease}
+    .project-showcase{padding:28px 0 10px}
+    .project-showcase .feature{grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:28px;align-items:start;margin-top:10px}
+    .project-showcase .video-shell{max-width:280px}
+    .project-showcase .paper{align-self:center}
+    .more-cue{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:12px auto 0;padding:9px 14px;border:0;background:transparent;border-radius:999px;color:var(--cream);font-size:.82rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.82;cursor:pointer;transition:transform .2s ease,opacity .2s ease}
     .more-cue::after{content:'↓';font-size:1rem;transition:transform .2s ease}
     .more-cue:hover{opacity:1;transform:translateY(2px)}
     .more-cue:hover::after{transform:translateY(3px)}
     .video-shell{max-width:390px;margin:auto;width:100%;background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--cream)}
     video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
-    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
+    .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:22px}
+    .project-showcase + .section{padding-top:34px;border-top:1px solid rgba(31,77,58,.12)}
     .video-card{background:var(--paper);color:var(--ink);border-radius:18px;overflow:hidden;max-width:330px;width:100%;margin:auto;transition:transform .22s ease,box-shadow .22s ease}
     .video-card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(14,45,34,.12)}
     .video-card video{border-radius:0}
@@ -115,6 +119,9 @@
       .project-head{padding:42px 0 22px}
       .project-page .section{padding:38px 0}
       .feature{gap:18px;margin-top:18px}
+      .project-showcase{padding:28px 0 16px}
+      .project-showcase .feature{grid-template-columns:1fr;gap:16px;margin-top:14px}
+      .project-showcase .video-shell{max-width:220px}
       .video-shell{max-width:230px}
       .video-card{max-width:none}
       .video-card .caption{padding:10px 10px}
@@ -233,7 +240,7 @@
           <div class="tags"><span class="tag">Idea</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Publicación</span></div>
         </div>
       </div>
-      <a class="more-cue" href="#bypal-more">Ver más piezas</a>
+      <button class="more-cue" type="button" data-scroll-target="bypal-more">Ver más piezas</button>
     </div>
   </div>
   <div class="section" id="bypal-more"><div class="wrap">
@@ -284,7 +291,7 @@
           <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
-      <a class="more-cue" href="#walkie-more">Ver más piezas</a>
+      <button class="more-cue" type="button" data-scroll-target="walkie-more">Ver más piezas</button>
     </div>
   </div>
   <div class="section" id="walkie-more"><div class="wrap">
@@ -314,7 +321,7 @@
           <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
-      <a class="more-cue" href="#relojes-more">Ver más piezas</a>
+      <button class="more-cue" type="button" data-scroll-target="relojes-more">Ver más piezas</button>
     </div>
   </div>
   <div class="section" id="relojes-more"><div class="wrap">
@@ -365,6 +372,12 @@ function goHome(){
 }
 document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>showProject(btn.dataset.target)));
 document.querySelectorAll('.back-btn').forEach(btn=>btn.addEventListener('click',goHome));
+document.querySelectorAll('.more-cue').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.scrollTarget);
+    target?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
 document.querySelectorAll('header nav a, #brand-home').forEach(link=>{
   link.addEventListener('click',e=>{
     const sectionId=(link.getAttribute('href')||'#inicio').replace('#','')||'inicio';
