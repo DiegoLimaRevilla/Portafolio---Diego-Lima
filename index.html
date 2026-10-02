@@ -17,6 +17,9 @@
     .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
     .brand{font-weight:900;font-size:1.25rem}
     nav{display:flex;gap:22px;font-weight:700;font-size:.93rem}
+    nav a{position:relative;padding:8px 0}
+    nav a::after{content:'';position:absolute;left:50%;bottom:2px;width:0;height:2px;background:var(--green);transform:translateX(-50%);transition:width .22s ease}
+    nav a:hover::after{width:100%}
     .hero{min-height:75vh;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:44px;padding:64px 0}
     .kicker{text-transform:uppercase;letter-spacing:.06em;font-weight:900;font-size:1.22rem;line-height:1.15;font-family:Arial Black,Arial,Helvetica,sans-serif}
     h1,.section-title{font-family:Arial Black,Arial,Helvetica,sans-serif;color:var(--green);font-weight:900}
@@ -28,7 +31,9 @@
     .section{padding:76px 0}
     .dark{background:var(--green);color:var(--cream)}
     .dark .section-title{color:var(--cream)}
-    .section-title{font-size:clamp(2.8rem,6vw,5rem);line-height:.88;letter-spacing:-.07em;margin:12px 0 28px}
+    .section-title{font-size:clamp(2.8rem,6vw,5rem);line-height:.88;letter-spacing:-.07em;margin:12px 0 28px;transition:opacity .55s ease,transform .55s ease}
+    .section-title.reveal{opacity:0;transform:translateY(12px)}
+    .section-title.reveal.visible{opacity:1;transform:translateY(0)}
     .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{position:relative;overflow:hidden;background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;min-height:180px;border:0;text-align:left;cursor:pointer;width:100%;transition:transform .25s ease,box-shadow .25s ease}
     .card::after{content:'';position:absolute;right:22px;bottom:22px;width:54px;height:54px;border:2px solid var(--green);border-radius:18px 18px 6px 18px;opacity:.18;transform:rotate(0deg) scale(.86);transition:transform .3s ease,opacity .3s ease,background .3s ease}
@@ -66,19 +71,21 @@
     .lightbox.open{display:flex}.lightbox img{max-width:min(1200px,94vw);max-height:90vh;object-fit:contain;border-radius:12px}
     .lightbox-close{position:absolute;top:18px;right:24px;border:0;background:transparent;color:white;font-size:2rem;cursor:pointer}
     .whatsapp-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;padding:14px 22px;border:2px solid var(--green);border-radius:999px;background:var(--green);color:var(--cream);font-weight:900;letter-spacing:.02em;transition:transform .2s ease,background .2s ease,color .2s ease}
-    .whatsapp-btn:hover{transform:translateY(-2px);background:transparent;color:var(--green)}
+    .whatsapp-btn:hover{transform:translateY(-2px) scale(1.015);background:transparent;color:var(--green)}
     footer{padding:46px 0;border-top:1px solid rgba(31,77,58,.18)}
     .project-page{display:none;min-height:100vh}
     .project-page.active{display:block}
     .home-hidden{display:none}
     .project-head{padding:70px 0 34px}
-    .back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--green);border-radius:10px;background:transparent;color:var(--green);font-weight:800;cursor:pointer}
+    .back-btn{margin-bottom:28px;padding:12px 18px;border:2px solid var(--green);border-radius:10px;background:transparent;color:var(--green);font-weight:800;cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease}
+    .back-btn:hover{transform:translateX(-4px);background:var(--green);color:var(--cream)}
     .project-page.dark-page .back-btn{border-color:var(--cream);color:var(--cream)}
     .feature{display:grid;grid-template-columns:minmax(260px,390px) minmax(0,1fr);gap:36px;align-items:center;margin-top:32px}
     .video-shell{max-width:390px;margin:auto;width:100%;background:#000;border-radius:20px;overflow:hidden;border:2px solid var(--cream)}
     video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
     .video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
-    .video-card{background:var(--paper);color:var(--ink);border-radius:18px;overflow:hidden;max-width:330px;width:100%;margin:auto}
+    .video-card{background:var(--paper);color:var(--ink);border-radius:18px;overflow:hidden;max-width:330px;width:100%;margin:auto;transition:transform .22s ease,box-shadow .22s ease}
+    .video-card:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(14,45,34,.12)}
     .video-card video{border-radius:0}
     .video-card .caption{padding:16px 18px}
     .video-card h3{margin:0 0 6px;font-family:Georgia,serif;font-size:1.35rem}
@@ -307,24 +314,27 @@ const pages=[...document.querySelectorAll('.project-page')];
 function pauseAll(){
   document.querySelectorAll('video').forEach(v=>{if(!v.paused)v.pause()});
 }
-function showProject(id){
+function showProject(id,{push=true}={}){
   pauseAll();
   home.classList.add('home-hidden');
   pages.forEach(p=>p.classList.remove('active'));
   document.getElementById(id)?.classList.add('active');
+  if(push) history.pushState({view:'project',id},'', '#'+id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function showHomeSection(sectionId='inicio'){
+function showHomeSection(sectionId='inicio',{push=false}={}){
   pauseAll();
   pages.forEach(p=>p.classList.remove('active'));
   home.classList.remove('home-hidden');
+  if(push) history.pushState({view:'home',section:sectionId},'', '#'+sectionId);
   setTimeout(()=>{
     const target=sectionId==='inicio' ? home : document.getElementById(sectionId);
     target?.scrollIntoView({behavior:'smooth',block:'start'});
   },50);
 }
 function goHome(){
-  showHomeSection('proyectos');
+  if(history.state?.view==='project') history.back();
+  else showHomeSection('proyectos');
 }
 document.querySelectorAll('.project-trigger').forEach(btn=>btn.addEventListener('click',()=>showProject(btn.dataset.target)));
 document.querySelectorAll('.back-btn').forEach(btn=>btn.addEventListener('click',goHome));
@@ -375,6 +385,32 @@ function closeLightbox(){
 lightboxClose.addEventListener('click',closeLightbox);
 lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+if(!history.state){
+  history.replaceState({view:'home',section:'inicio'},'', location.hash || '#inicio');
+}
+window.addEventListener('popstate',e=>{
+  const state=e.state;
+  if(state?.view==='project' && state.id){
+    showProject(state.id,{push:false});
+  }else{
+    const section=state?.section || (location.hash ? location.hash.slice(1) : 'inicio');
+    showHomeSection(section,{push:false});
+  }
+});
+
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:.18});
+document.querySelectorAll('.section-title').forEach(title=>{
+  title.classList.add('reveal');
+  revealObserver.observe(title);
+});
 </script>
 </body>
 </html>
