@@ -92,6 +92,12 @@
     .project-showcase .feature{grid-template-columns:minmax(210px,270px) minmax(0,1fr);gap:24px;align-items:center;margin-top:6px}
     .project-showcase .video-shell{max-width:280px}
     .project-showcase .paper{align-self:center}
+    .case-summary{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
+    .case-summary .case-item{padding-bottom:14px;border-bottom:1px solid rgba(23,54,43,.14)}
+    .case-summary .case-item.full{grid-column:1/-1}
+    .case-summary h4{margin:0 0 6px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase}
+    .case-summary p{margin:0;font-size:.98rem;line-height:1.45}
+    .case-quote{grid-column:1/-1;margin:2px 0 0;padding:16px 0 2px;font-family:Georgia,serif;font-size:1.45rem;line-height:1.28;font-weight:700}
     .more-cue{display:flex;align-items:center;justify-content:center;gap:10px;width:max-content;margin:8px auto 0;padding:9px 14px;border:0;background:transparent;border-radius:999px;color:var(--cream);font-size:.82rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.82;cursor:pointer;transition:transform .2s ease,opacity .2s ease}
     .more-cue::after{content:'↓';font-size:1rem;transition:transform .2s ease}
     .more-cue:hover{opacity:1;transform:translateY(2px)}
@@ -128,6 +134,9 @@
       .video-card h3{font-size:1rem}
       .project-page .paper{padding:20px}
       .project-page .paper h3{font-size:1.55rem}
+      .case-summary{grid-template-columns:1fr;gap:14px}
+      .case-summary .case-item.full,.case-quote{grid-column:1}
+      .case-quote{font-size:1.18rem}
       .project-page .lead{font-size:1rem;line-height:1.45}
       .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;aspect-ratio:auto}
       .photo-card.c1,.photo-card.c2,.photo-card.c3,.photo-card.c4,.photo-card.c5,.photo-card.f1,.photo-card.f2,.photo-card.f3{position:relative;left:auto;top:auto;width:auto;height:auto;grid-column:auto;margin:0}
@@ -236,8 +245,25 @@
         <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/bypal_principal.mp4"></video></div>
         <div class="paper">
           <h3>Mi aporte</h3>
-          <p class="lead" style="font-size:1.05rem">Idea, grabación, edición y publicación de contenido vertical para mostrar productos tecnológicos de forma clara y comercial.</p>
-          <div class="tags"><span class="tag">Idea</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Publicación</span></div>
+          <div class="case-summary">
+            <div class="case-item">
+              <h4>El reto</h4>
+              <p>Explicar productos de videovigilancia de forma simple para personas que podían percibirlos como algo técnico o complicado.</p>
+            </div>
+            <div class="case-item">
+              <h4>Mi enfoque</h4>
+              <p>Convertir dudas reales de los clientes en contenido útil, natural y fácil de entender.</p>
+            </div>
+            <div class="case-item full">
+              <h4>Mi participación</h4>
+              <p>Concepto · Guion · Grabación · Edición · Publicación · Lives</p>
+            </div>
+            <div class="case-quote">“Convertir información difícil en algo didáctico, fácil de entender y que genere seguridad.”</div>
+            <div class="case-item full">
+              <h4>Lo que aprendí</h4>
+              <p>Aprendí a identificar necesidades del cliente y transformar información técnica en mensajes claros que generen confianza.</p>
+            </div>
+          </div>
         </div>
       </div>
       <button class="more-cue" type="button" data-scroll-target="bypal-more">Ver más piezas</button>
