@@ -94,17 +94,6 @@
     .project-showcase .feature{grid-template-columns:minmax(210px,270px) minmax(0,1fr);gap:24px;align-items:center;margin-top:6px}
     .project-showcase .video-shell{max-width:280px}
     .project-showcase .paper{align-self:center}
-    .project-mini-summary{margin-top:18px;max-width:860px;background:var(--paper);border:1px solid rgba(31,77,58,.16);border-radius:16px;padding:16px 18px}
-    .project-mini-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
-    .project-mini-summary h4{margin:0 0 4px;font-family:Arial Black,Arial,Helvetica,sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:900;color:var(--green)}
-    .project-mini-summary p{margin:0;font-size:.94rem;line-height:1.4}
-    .project-overview{display:grid;grid-template-columns:minmax(220px,280px) minmax(0,1fr);gap:26px;align-items:start}
-    .project-main .video-shell{max-width:280px;margin:0}
-    .project-pieces{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
-    .project-pieces .video-card{width:100%;max-width:220px;margin:0}
-    .project-pieces .video-card .caption{padding:10px 12px}
-    .project-pieces .video-card h3{font-size:1rem;margin:0}
-    .project-overview.single{grid-template-columns:minmax(220px,280px)}
     .case-summary{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
     .case-summary .case-item{padding-bottom:14px;border-bottom:1px solid rgba(23,54,43,.14)}
     .case-summary .case-item.full{grid-column:1/-1}
@@ -147,12 +136,6 @@
       .video-card h3{font-size:1rem}
       .project-page .paper{padding:20px}
       .project-page .paper h3{font-size:1.55rem}
-      .project-mini-summary-grid{grid-template-columns:1fr;gap:10px}
-      .project-overview{grid-template-columns:1fr;gap:18px}
-      .project-main .video-shell{max-width:220px;margin:auto}
-      .project-pieces{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-      .project-pieces .video-card{max-width:none}
-      .project-overview.single{grid-template-columns:1fr}
       .case-summary{grid-template-columns:1fr;gap:14px}
       .case-summary .case-item.full,.case-quote{grid-column:1}
       .case-quote{font-size:1.18rem}
@@ -163,9 +146,6 @@
     }
     @media(max-width:560px){
       .whatsapp-float{right:14px;bottom:14px;width:52px;height:52px;font-size:1.25rem}
-      .project-mini-summary{padding:14px 15px}
-      .project-mini-summary p{font-size:.9rem}
-      .project-pieces{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
       .video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
       .video-shell{max-width:210px}
       .photo-grid{grid-template-columns:1fr}
@@ -260,41 +240,46 @@
     <button class="back-btn" type="button">← Volver a proyectos</button>
     <p class="kicker">Proyecto seleccionado</p>
     <h2 class="section-title">Buypal</h2>
-    <div class="project-mini-summary">
-      <div class="project-mini-summary-grid">
-        <div>
-          <h4>El reto</h4>
-          <p>Hacer que productos técnicos se sintieran simples de entender y usar.</p>
-        </div>
-        <div>
-          <h4>Mi enfoque</h4>
-          <p>Convertir dudas reales de clientes en contenido útil, natural y claro.</p>
-        </div>
-        <div>
-          <h4>Mi participación</h4>
-          <p>Concepto · Guion · Grabación · Edición · Publicación · Lives</p>
-        </div>
-        <div>
-          <h4>Aprendizaje</h4>
-          <p>Traducir información técnica en mensajes simples que generen confianza.</p>
-        </div>
-      </div>
-    </div>
+    <p class="lead">Contenido audiovisual para productos de videovigilancia, creado para explicar funciones técnicas de manera clara, visual y fácil de entender.</p>
   </div>
   <div class="section dark project-showcase">
     <div class="wrap">
-      <div class="bypal-overview">
-        <div class="bypal-main">
-          <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/bypal_principal.mp4"></video></div>
-        </div>
-        <div class="bypal-pieces">
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_4_web.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/bypal_principal.mp4"></video></div>
+        <div class="paper">
+          <h3>Mi aporte</h3>
+          <div class="case-summary">
+            <div class="case-item">
+              <h4>El reto</h4>
+              <p>Explicar productos de videovigilancia de forma simple para personas que podían percibirlos como algo técnico o complicado.</p>
+            </div>
+            <div class="case-item">
+              <h4>Mi enfoque</h4>
+              <p>Convertir dudas reales de los clientes en contenido útil, natural y fácil de entender.</p>
+            </div>
+            <div class="case-item full">
+              <h4>Mi participación</h4>
+              <p>Concepto · Guion · Grabación · Edición · Publicación · Lives</p>
+            </div>
+            <div class="case-quote">“Convertir información difícil en algo didáctico, fácil de entender y que genere seguridad.”</div>
+            <div class="case-item full">
+              <h4>Lo que aprendí</h4>
+              <p>Aprendí a identificar necesidades del cliente y transformar información técnica en mensajes claros que generen confianza.</p>
+            </div>
+          </div>
         </div>
       </div>
+      <button class="more-cue" type="button" data-scroll-target="bypal-more">Ver más piezas</button>
     </div>
   </div>
+  <div class="section" id="bypal-more"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/bypal_pieza_4_web.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
 </section>
 
 <section id="cerrito-project" class="project-page">
@@ -302,32 +287,16 @@
     <button class="back-btn" type="button">← Volver a proyectos</button>
     <p class="kicker">Proyecto seleccionado</p>
     <h2 class="section-title">Caja China El Cerrito</h2>
-    <div class="project-mini-summary">
-      <div class="project-mini-summary-grid">
-        <div>
-          <h4>El reto</h4>
-          <p>Mostrar el producto gastronómico de una forma atractiva y cercana para redes sociales.</p>
-        </div>
-        <div>
-          <h4>Mi enfoque</h4>
-          <p>Priorizar tomas dinámicas y visuales que hicieran más apetecible la propuesta.</p>
-        </div>
-        <div>
-          <h4>Mi participación</h4>
-          <p>Grabación · Edición · Contenido vertical</p>
-        </div>
-        <div>
-          <h4>Clave del proyecto</h4>
-          <p>Comunicar sabor, producto y experiencia en pocos segundos.</p>
-        </div>
-      </div>
-    </div>
+    <p class="lead">Contenido audiovisual para restaurante, centrado en mostrar el producto de forma apetecible, dinámica y cercana.</p>
   </div>
-  <div class="section dark project-showcase">
+  <div class="section dark">
     <div class="wrap">
-      <div class="project-overview single">
-        <div class="project-main">
-          <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/caja_china_el_cerrito.mp4"></video></div>
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/caja_china_el_cerrito.mp4"></video></div>
+        <div class="paper">
+          <h3>Mi aporte</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar la propuesta gastronómica del restaurante de una forma atractiva para redes sociales.</p>
+          <div class="tags"><span class="tag">Gastronomía</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
     </div>
@@ -339,41 +308,29 @@
     <button class="back-btn" type="button">← Volver a proyectos</button>
     <p class="kicker">Proyecto seleccionado</p>
     <h2 class="section-title">Walkie Talkies Reys</h2>
-    <div class="project-mini-summary">
-      <div class="project-mini-summary-grid">
-        <div>
-          <h4>El reto</h4>
-          <p>Mostrar funciones y uso del producto de forma rápida y fácil de entender.</p>
-        </div>
-        <div>
-          <h4>Mi enfoque</h4>
-          <p>Combinar demostración de producto con una presentación comercial directa y visual.</p>
-        </div>
-        <div>
-          <h4>Mi participación</h4>
-          <p>Grabación · Edición · Contenido vertical</p>
-        </div>
-        <div>
-          <h4>Clave del proyecto</h4>
-          <p>Hacer visible el valor del producto desde la demostración.</p>
-        </div>
-      </div>
-    </div>
+    <p class="lead">Contenido audiovisual de producto pensado para mostrar funciones, uso y propuesta comercial de forma clara y dinámica.</p>
   </div>
   <div class="section dark project-showcase">
     <div class="wrap">
-      <div class="project-overview">
-        <div class="project-main">
-          <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/walkie_principal.mp4"></video></div>
-        </div>
-        <div class="project-pieces">
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_4.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/walkie_principal.mp4"></video></div>
+        <div class="paper">
+          <h3>Pieza principal</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical para presentar el producto de forma directa, visual y fácil de entender.</p>
+          <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
+      <button class="more-cue" type="button" data-scroll-target="walkie-more">Ver más piezas</button>
     </div>
   </div>
+  <div class="section" id="walkie-more"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_2.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_3.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/walkie_pieza_4.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
 </section>
 
 <section id="relojes-project" class="project-page">
@@ -381,41 +338,29 @@
     <button class="back-btn" type="button">← Volver a proyectos</button>
     <p class="kicker">Proyecto seleccionado</p>
     <h2 class="section-title">Relojes de lujo</h2>
-    <div class="project-mini-summary">
-      <div class="project-mini-summary-grid">
-        <div>
-          <h4>El reto</h4>
-          <p>Destacar acabados y detalles del producto sin perder una presencia comercial.</p>
-        </div>
-        <div>
-          <h4>Mi enfoque</h4>
-          <p>Trabajar encuadres, ritmo y detalle para construir una imagen más elegante.</p>
-        </div>
-        <div>
-          <h4>Mi participación</h4>
-          <p>Grabación · Edición · Contenido vertical</p>
-        </div>
-        <div>
-          <h4>Clave del proyecto</h4>
-          <p>Dar protagonismo al producto desde una estética cuidada.</p>
-        </div>
-      </div>
-    </div>
+    <p class="lead">Contenido audiovisual para relojes, pensado para destacar acabados, detalles y presencia del producto con una estética cuidada y comercial.</p>
   </div>
   <div class="section dark project-showcase">
     <div class="wrap">
-      <div class="project-overview">
-        <div class="project-main">
-          <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/relojes_video_nuevo_7688809910967995669.mp4"></video></div>
-        </div>
-        <div class="project-pieces">
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_4.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_2.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
-          <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_3.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+      <div class="feature">
+        <div class="video-shell"><video controls playsinline preload="metadata" src="assets/videos/relojes_video_nuevo_7688809910967995669.mp4"></video></div>
+        <div class="paper">
+          <h3>Mi aporte</h3>
+          <p class="lead" style="font-size:1.05rem">Producción y edición de contenido vertical enfocado en presentar el producto con una imagen más elegante, cuidando encuadres, detalles y ritmo visual.</p>
+          <div class="tags"><span class="tag">Producto</span><span class="tag">Grabación</span><span class="tag">Edición</span><span class="tag">Contenido vertical</span></div>
         </div>
       </div>
+      <button class="more-cue" type="button" data-scroll-target="relojes-more">Ver más piezas</button>
     </div>
   </div>
+  <div class="section" id="relojes-more"><div class="wrap">
+    <p class="kicker">Más piezas</p><h2 class="section-title">Selección de contenido</h2>
+    <div class="video-grid">
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_4.mp4"></video><div class="caption"><h3>Pieza 2</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_2.mp4"></video><div class="caption"><h3>Pieza 3</h3></div></article>
+      <article class="video-card"><video controls playsinline preload="metadata" src="assets/videos/relojes_pieza_3.mp4"></video><div class="caption"><h3>Pieza 4</h3></div></article>
+    </div>
+  </div></div>
 </section>
 
 <a class="whatsapp-float" href="https://wa.me/51927818236?text=Hola%20Diego%2C%20vi%20tu%20portafolio%20y%20quisiera%20conversar%20contigo." target="_blank" rel="noopener noreferrer" aria-label="Contactar a Diego por WhatsApp" title="Escríbeme por WhatsApp">✆</a>
